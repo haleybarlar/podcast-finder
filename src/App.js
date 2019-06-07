@@ -1,6 +1,7 @@
 import React from 'react'
 import Search from './components/Search.js'
 import Results from './components/Results.js'
+import Navbar from './components/Navbar.js'
 
 class App extends React.Component {
 
@@ -41,9 +42,27 @@ class App extends React.Component {
 
   render (){
     return (
-      <div >
-        <Search fetchPodcasts={this.fetchPodcasts} fetchEpisodes={this.fetchEpisodes}/>
-        {this.state.results ? <Results results={this.state.results} episode={this.state.episodes} fetchEpisodes={this.fetchEpisodes}/> : null}
+      <div>
+        <Navbar 
+          fetchPodcasts={this.fetchPodcasts} 
+          fetchEpisodes={this.fetchEpisodes} 
+          results={this.state.results}
+        />
+        {this.state.results ? 
+          <Results 
+            results={this.state.results} 
+            episode={this.state.episodes} 
+            fetchEpisodes={this.fetchEpisodes}
+          /> 
+        :
+        <div>
+          <p>Search for a podcast by name:</p>
+          <Search 
+            fetchPodcasts={this.fetchPodcasts} 
+            fetchEpisodes={this.fetchEpisodes}
+          />
+        </div>
+        }
       </div>
     )
   }
