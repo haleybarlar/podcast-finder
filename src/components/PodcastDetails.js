@@ -12,9 +12,6 @@ class PodcastDetails extends React.Component {
         return (
             <div id="podcast-details">
                 <h1>{this.props.podcastTitle}</h1>
-                <h3>{this.props.podcastDescription}</h3>
-                <h3>{this.props.podcastPublisher}</h3>
-                <img src={this.props.podcastImage} alt=""/>
                 {episodes}
             </div>
         )

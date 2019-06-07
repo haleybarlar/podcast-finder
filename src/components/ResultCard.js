@@ -20,15 +20,15 @@ class ResultCard extends React.Component {
             <div id={this.props.result.id} 
             className="result-card" onClick={this.flipCard}>
                 {!this.state.clicked ?
-                        <img 
-                            src={this.props.result.thumbnail} 
-                            alt="" id={this.props.result.id} 
-                        />
+                    <img 
+                        src={this.props.result.thumbnail} 
+                        alt="" id={this.props.result.id} 
+                    />
                 : 
                     <div className="result-card" id="result-desc" >
                         <h1>{this.props.result.title_original}</h1>
+                        <button id={this.props.result.id} onClick={this.props.handleClick}>Episodes!</button>
                         <p>{this.props.result.description_original}</p>
-                        <button id={this.props.result.id} onClick={this.props.handleClick}>Hear the episodes!</button>
                     </div>
                 }
             </div>
