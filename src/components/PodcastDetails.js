@@ -10,7 +10,7 @@ class PodcastDetails extends React.Component {
         console.log(this.props.episodes)
         
         return (
-            <div>
+            <div id="podcast-details">
                 <h1>{this.props.podcastTitle}</h1>
                 <h3>{this.props.podcastDescription}</h3>
                 <h3>{this.props.podcastPublisher}</h3>

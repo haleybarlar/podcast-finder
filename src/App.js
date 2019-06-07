@@ -42,11 +42,12 @@ class App extends React.Component {
 
   render (){
     return (
-      <div>
+      <div id="app">
         <Navbar 
           fetchPodcasts={this.fetchPodcasts} 
           fetchEpisodes={this.fetchEpisodes} 
           results={this.state.results}
+          goHome={() => this.setState({ results: null })}
         />
         {this.state.results ? 
           <Results 

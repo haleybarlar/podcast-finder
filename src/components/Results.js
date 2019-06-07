@@ -1,6 +1,7 @@
 import React from 'react'
 import ResultCard from './ResultCard.js'
 import PodcastDetails from './PodcastDetails.js'
+import '../css/results.scss'
 
 class Results extends React.Component {
 
@@ -33,8 +34,6 @@ class Results extends React.Component {
             />
         )
 
-        console.log(this.props.episode)
-
         let result = (this.props.episode ? 
             <PodcastDetails 
                 episodes={this.props.episode.episodes}
@@ -47,7 +46,7 @@ class Results extends React.Component {
 
         return (
             <div >
-                {!this.state.clicked ? results : <div><button onClick={this.showAll}>Go back</button>{result}</div>}
+                {!this.state.clicked ? <div id="results">{results}</div> : <div id="single-podcast"><button onClick={this.showAll}>Go back</button>{result}</div>}
             </div>
         )
     }

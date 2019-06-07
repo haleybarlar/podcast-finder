@@ -4,7 +4,7 @@ class EpisodeCard extends React.Component {
 
     render (){
         return (
-            <div>
+            <div id="episode-card">
                 <h4>{this.props.episode.title}</h4>
                 <audio
                     controls

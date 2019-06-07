@@ -23,7 +23,7 @@ class Search extends React.Component {
 
     render (){
         return (
-        <div >
+        <div id="search">
             <form onSubmit={this.handleSubmit}>
                 <input 
                     type="text" 
