@@ -12,7 +12,6 @@ class ResultCard extends React.Component {
             </div>
         )
     }
-
 }
 
 export default ResultCard

@@ -29,7 +29,8 @@ class Search extends React.Component {
                     type="text" 
                     placeholder="search for a podcast"
                     onChange={this.handleChange} 
-                    value={this.state.inputValue}/>
+                    value={this.state.inputValue}
+                />
                 <button type="submit">Submit</button>
             </form>
         </div>

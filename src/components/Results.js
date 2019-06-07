@@ -47,7 +47,7 @@ class Results extends React.Component {
 
         return (
             <div >
-                {!this.state.clicked ? results : result}
+                {!this.state.clicked ? results : <div><button onClick={this.showAll}>Go back</button>{result}</div>}
             </div>
         )
     }
