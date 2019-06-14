@@ -1,7 +1,23 @@
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
+    #all-results {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 3em;
+    }
+
     #results {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-row-gap: 1.5em;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 1em;
+        grid-column-gap: 1em;
+        height: 500px;
+        width: 697px;
+        overflow: scroll;
+    }
+
+    #single-podcast {
+        height: 500px;
+        width: 697px;
+        overflow: scroll;
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/search.scss'
 
 class Search extends React.Component {
 

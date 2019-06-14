@@ -5,13 +5,14 @@ class PodcastDetails extends React.Component {
 
     render (){
 
+        console.log(this.props.episodes)
+
         let episodes = (this.props.episodes ? this.props.episodes.map(episode => <EpisodeCard episode={episode} key={episode.id}/>) : null)
 
-        console.log(this.props.episodes)
-        
         return (
             <div id="podcast-details">
                 <h1>{this.props.podcastTitle}</h1>
+                <h3>{this.props.podcastDescription}</h3>
                 {episodes}
             </div>
         )

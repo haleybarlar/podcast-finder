@@ -2,6 +2,7 @@ import React from 'react'
 import Search from './components/Search.js'
 import Results from './components/Results.js'
 import Navbar from './components/Navbar.js'
+import './app.scss'
 
 class App extends React.Component {
 

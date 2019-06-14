@@ -21,8 +21,8 @@ class Results extends React.Component {
 
     handleClick = (event) => {
         this.setState({
-            result: event.target.id
-            // clicked: true
+            result: event.target.id,
+            clicked: true
         })
         this.props.fetchEpisodes(event.target.id)
     }
@@ -62,8 +62,14 @@ class Results extends React.Component {
             /> : null)
 
         return (
-            <div >
-                {!this.state.clicked ? <div id="results">{allPodcasts}</div> : <div id="single-podcast"><button onClick={this.showAll}>Go back</button>{podcastDetails}</div>}
+            <div id="all-results">
+                <div id="results">{allPodcasts}</div> 
+                {this.state.clicked ? 
+                    <div id="single-podcast">
+                        <button onClick={this.showAll}>Go back</button>
+                        {podcastDetails}
+                    </div> 
+                : null}
             </div>
         )
     }
