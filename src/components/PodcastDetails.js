@@ -5,7 +5,7 @@ class PodcastDetails extends React.Component {
 
     render (){
 
-        let episodes = this.props.episodes.map(episode => <EpisodeCard episode={episode} key={episode.id}/>)
+        let episodes = (this.props.episodes ? this.props.episodes.map(episode => <EpisodeCard episode={episode} key={episode.id}/>) : null)
 
         console.log(this.props.episodes)
         

@@ -4,20 +4,8 @@ import '../css/resultcard.scss'
 class ResultCard extends React.Component {
 
     state = {
-        hovered: false,
-        clicked: false
-    }
-
-    handleHover = () => {
-        this.setState({
-            hovered: !this.state.hovered
-        })
-    }
-
-    handleClick = () => {
-        this.setState({
-            clicked: true
-        })
+        seeMore: false,
+        clicked: false,
     }
 
     render (){
@@ -25,13 +13,12 @@ class ResultCard extends React.Component {
         return (
             <div id={this.props.result.id} 
                 className="result-card" 
-                onMouseEnter={this.handleHover} 
-                onMouseLeave={this.handleHover}
             >
-                {!this.state.hovered ?
+                {!this.state.seeMore ?
                     <img 
                         src={this.props.result.thumbnail} 
                         alt="" id={this.props.result.id} 
+                        onClick={() => this.setState({ seeMore: true })}
                     />
                 : 
                     (!this.state.clicked ? 
@@ -40,9 +27,9 @@ class ResultCard extends React.Component {
                             <p>{this.props.result.description_original}</p>
                             <button 
                                 id={this.props.result.id} 
-                                onClick={(event) => {this.handleClick(); this.props.handleClick(event)}}
+                                onClick={(event) => {this.setState({ clicked: true }); this.props.handleClick(event)}}
                             >
-                            Episodes!
+                            Hear the first episode
                             </button>
                         </div> 
                     : 
@@ -57,7 +44,8 @@ class ResultCard extends React.Component {
                                 </div>
                             : null}
 
-                            <button onClick={this.props.goToAllEpisodes}>See More</button>
+                            <button onClick={this.props.goToAllEpisodes}>HearMore</button>
+                            <button onClick={() => this.setState({ clicked: false })}>Description</button>
                         </div>
                     )
                 }
