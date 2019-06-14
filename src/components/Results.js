@@ -7,13 +7,22 @@ class Results extends React.Component {
 
     state = {
         result: "",
-        clicked: false
+        clicked: false,
+        episodes: null
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.episode !== this.props.episode && this.props.episode) {
+            this.setState({
+                episodes: this.props.episode.episodes
+            })
+        }
     }
 
     handleClick = (event) => {
         this.setState({
-            result: event.target.id,
-            clicked: true
+            result: event.target.id
+            // clicked: true
         })
         this.props.fetchEpisodes(event.target.id)
     }
@@ -24,17 +33,25 @@ class Results extends React.Component {
         })
     }
 
+    goToAllEpisodes = () => {
+        this.setState({
+            clicked: true
+        })
+    }
+
     render (){
-        let results = this.props.results.results.map(result => 
+        let allPodcasts = this.props.results.results.map(result => 
             <ResultCard 
                 result={result} 
                 key={result.id} 
                 handleClick={this.handleClick}
                 clicked={this.state.clicked}
+                episodes={this.state.episodes}
+                goToAllEpisodes={this.goToAllEpisodes}
             />
         )
 
-        let result = (this.props.episode ? 
+        let podcastDetails = (this.props.episode ? 
             <PodcastDetails 
                 episodes={this.props.episode.episodes}
                 podcastTitle={this.props.episode.title}
@@ -46,11 +63,10 @@ class Results extends React.Component {
 
         return (
             <div >
-                {!this.state.clicked ? <div id="results">{results}</div> : <div id="single-podcast"><button onClick={this.showAll}>Go back</button>{result}</div>}
+                {!this.state.clicked ? <div id="results">{allPodcasts}</div> : <div id="single-podcast"><button onClick={this.showAll}>Go back</button>{podcastDetails}</div>}
             </div>
         )
     }
-
 }
 
 export default Results
