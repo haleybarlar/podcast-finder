@@ -3,6 +3,8 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 3em;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     #results {
@@ -10,14 +12,12 @@
         grid-template-columns: 1fr 1fr;
         grid-row-gap: 1em;
         grid-column-gap: 1em;
-        height: 500px;
-        width: 697px;
+        height: 37em;
         overflow: scroll;
     }
 
     #single-podcast {
-        height: 500px;
-        width: 697px;
+        height: 37em;
         overflow: scroll;
     }
 }

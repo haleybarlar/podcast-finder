@@ -8,14 +8,6 @@ class Navbar extends React.Component {
     return (
       <div id="navbar">
         <h1 onClick={this.props.goHome}>Podcast App</h1>
-        {this.props.results ? 
-            <div id="navbar-search">
-                <Search 
-                    fetchPodcasts={this.props.fetchPodcasts} 
-                    fetchEpisodes={this.props.fetchEpisodes}
-                />
-            </div>
-        : null}
       </div>
     )
   }

@@ -66,10 +66,9 @@ class Results extends React.Component {
                 <div id="results">{allPodcasts}</div> 
                 {this.state.clicked ? 
                     <div id="single-podcast">
-                        <button onClick={this.showAll}>Go back</button>
                         {podcastDetails}
                     </div> 
-                : null}
+                : <h1>Choose a podcast</h1>}
             </div>
         )
     }
