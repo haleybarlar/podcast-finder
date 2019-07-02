@@ -1,14 +1,17 @@
 import React from 'react'
-import Search from './components/Search.js'
 import Results from './components/Results.js'
 import Navbar from './components/Navbar.js'
+import Quiz from './components/Quiz.js'
+import SearchOptions from './components/SearchOptions.js'
+import { Route, Switch } from "react-router-dom";
 import './app.scss'
 
 class App extends React.Component {
 
   state = {
     results: null,
-    episodes: null
+    episodes: null,
+    quiz: false
   }
 
   fetchPodcasts = (result) => {
@@ -50,25 +53,26 @@ class App extends React.Component {
           results={this.state.results}
           goHome={() => this.setState({ results: null })}
         />
-        {this.state.results ? 
-          <Results 
-            results={this.state.results} 
-            episode={this.state.episodes} 
-            fetchEpisodes={this.fetchEpisodes}
-          /> 
-        :
-        <div>
-          <p>Search for a podcast by name:</p>
-          <Search 
-            fetchPodcasts={this.fetchPodcasts} 
-            fetchEpisodes={this.fetchEpisodes}
-          />
-        </div>
-        }
+        <Switch>
+          <Route exact path="/" render={() => 
+            <SearchOptions
+              fetchPodcasts={this.fetchPodcasts} 
+              fetchEpisodes={this.fetchEpisodes}
+            />
+          }/>
+          <Route exact path="/results" render={() => 
+            <Results
+              results={this.state.results} 
+              episode={this.state.episodes} 
+              fetchEpisodes={this.fetchEpisodes}
+            />
+          }/>
+          <Route exact path="/quiz" component={Quiz}/>
+        </Switch>
       </div>
     )
   }
 
 }
 
-export default App;
+export default App

@@ -40,7 +40,7 @@ class Results extends React.Component {
     }
 
     render (){
-        let allPodcasts = this.props.results.results.map(result => 
+        let allPodcasts = (this.props.results !== null ? this.props.results.results.map(result => 
             <ResultCard 
                 result={result} 
                 key={result.id} 
@@ -49,7 +49,7 @@ class Results extends React.Component {
                 episodes={this.state.episodes}
                 goToAllEpisodes={this.goToAllEpisodes}
             />
-        )
+        ) : null)
 
         let podcastDetails = (this.props.episode ? 
             <PodcastDetails 
