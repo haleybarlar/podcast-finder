@@ -35,6 +35,7 @@ class Quiz extends React.Component {
   }
 
   render() {
+
     const genres = [
       {"Health": 88},
       {"True Crime": 135},

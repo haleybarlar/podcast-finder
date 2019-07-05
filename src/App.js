@@ -27,6 +27,10 @@ class App extends React.Component {
   //     .then(resp => console.log(resp))
   // }
 
+  fetchRecommendedPodcasts = () => {
+
+  }
+
   fetchPodcasts = (result) => {
     const url = `https://listen-api.listennotes.com/api/v2/search?q=${result}&type=podcast`
     const key = '2a9e8cf643e24f8c8271678ddc18cb04'
@@ -82,7 +86,11 @@ class App extends React.Component {
               fetchEpisodes={this.fetchEpisodes}
             />
           }/>
-          <Route exact path="/quiz" component={Quiz}/>
+          <Route exact path="/quiz" render={() => 
+            <Quiz
+              fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
+            />
+          }/>
           <Route exact path="/quizResults" render={() => 
             <QuizResults/>
           }/>
