@@ -3,6 +3,7 @@ import Results from './components/Results.js'
 import Navbar from './components/Navbar.js'
 import Quiz from './components/Quiz.js'
 import SearchOptions from './components/SearchOptions.js'
+import QuizResults from './components/QuizResults.js'
 import { Route, Switch } from "react-router-dom";
 import './app.scss'
 
@@ -13,6 +14,18 @@ class App extends React.Component {
     episodes: null,
     quiz: false
   }
+
+  // componentDidMount() {
+  //   const url = 'https://listen-api.listennotes.com/api/v2/genres'
+  //   const key = '2a9e8cf643e24f8c8271678ddc18cb04'
+  //   fetch(`${url}`, {
+  //     headers: {
+  //         'X-ListenAPI-Key': `${key}`
+  //     }
+  //     })
+  //     .then(resp => resp.json())
+  //     .then(resp => console.log(resp))
+  // }
 
   fetchPodcasts = (result) => {
     const url = `https://listen-api.listennotes.com/api/v2/search?q=${result}&type=podcast`
@@ -65,9 +78,14 @@ class App extends React.Component {
               results={this.state.results} 
               episode={this.state.episodes} 
               fetchEpisodes={this.fetchEpisodes}
+              fetchPodcasts={this.fetchPodcasts} 
+              fetchEpisodes={this.fetchEpisodes}
             />
           }/>
           <Route exact path="/quiz" component={Quiz}/>
+          <Route exact path="/quizResults" render={() => 
+            <QuizResults/>
+          }/>
         </Switch>
       </div>
     )
