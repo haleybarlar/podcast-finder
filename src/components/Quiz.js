@@ -24,10 +24,17 @@ class Quiz extends React.Component {
     crime: 0,
     tech: 0,
     comedy: 0,
+    winner: null,
     div: 0
   }
 
   plusOne = (name) => (event)=> {
+    if (this.state[name] >= 3) {
+      this.setState({
+        winner: name
+      })
+    }
+
     this.setState({
       [name]: this.state[name] + 1,
       div: this.state.div + 1
@@ -37,13 +44,13 @@ class Quiz extends React.Component {
   render() {
 
     const genres = [
-      {"Health": 88},
-      {"True Crime": 135},
-      {"Tech News": 131},
-      {"Comedy": 133}
+      {"health": 88},
+      {"crime": 135},
+      {"tech": 131},
+      {"comedy": 133}
     ]
 
-    let arr = [
+    let questionSlides = [
       [
       <div className="question-1">
         <p>Which of these images speaks to you?</p>
@@ -83,12 +90,15 @@ class Quiz extends React.Component {
     ]
 
     if (this.state.div > 3) {
+      let something = genres.filter(genre => genre[this.state.winner])[0]
+      let winner = Object.values(something)
+      this.props.fetchRecommendedPodcasts(winner[0])
       return <Redirect to='/quizResults' />
     }
 
     return (
       <div className="quiz">
-        {arr[this.state.div]}
+        {questionSlides[this.state.div]}
       </div>
     )
   }

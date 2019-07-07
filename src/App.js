@@ -12,23 +12,22 @@ class App extends React.Component {
   state = {
     results: null,
     episodes: null,
-    quiz: false
+    quiz: false,
+    quizResults: null
   }
 
-  // componentDidMount() {
-  //   const url = 'https://listen-api.listennotes.com/api/v2/genres'
-  //   const key = '2a9e8cf643e24f8c8271678ddc18cb04'
-  //   fetch(`${url}`, {
-  //     headers: {
-  //         'X-ListenAPI-Key': `${key}`
-  //     }
-  //     })
-  //     .then(resp => resp.json())
-  //     .then(resp => console.log(resp))
-  // }
-
-  fetchRecommendedPodcasts = () => {
-
+  fetchRecommendedPodcasts = (winnerValue) => {
+    const url = `https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=${winnerValue}`
+    const key = '2a9e8cf643e24f8c8271678ddc18cb04'
+    fetch(`${url}`, {
+      headers: {
+          'X-ListenAPI-Key': `${key}`
+      }
+      })
+      .then(resp => resp.json())
+      .then(resp => this.setState({
+        quizResults: resp
+      }))
   }
 
   fetchPodcasts = (result) => {
@@ -62,37 +61,41 @@ class App extends React.Component {
   }
 
   render (){
+    console.log(this.state.episodes)
     return (
       <div id="app">
-        <Navbar 
-          fetchPodcasts={this.fetchPodcasts} 
-          fetchEpisodes={this.fetchEpisodes} 
+        <Navbar
+          fetchPodcasts={this.fetchPodcasts}
+          fetchEpisodes={this.fetchEpisodes}
           results={this.state.results}
           goHome={() => this.setState({ results: null })}
         />
         <Switch>
-          <Route exact path="/" render={() => 
+          <Route exact path="/" render={() =>
             <SearchOptions
-              fetchPodcasts={this.fetchPodcasts} 
+              fetchPodcasts={this.fetchPodcasts}
               fetchEpisodes={this.fetchEpisodes}
             />
           }/>
-          <Route exact path="/results" render={() => 
+          <Route exact path="/results" render={() =>
             <Results
-              results={this.state.results} 
-              episode={this.state.episodes} 
+              results={this.state.results}
+              episode={this.state.episodes}
               fetchEpisodes={this.fetchEpisodes}
-              fetchPodcasts={this.fetchPodcasts} 
-              fetchEpisodes={this.fetchEpisodes}
+              fetchPodcasts={this.fetchPodcasts}
             />
           }/>
-          <Route exact path="/quiz" render={() => 
+          <Route exact path="/quiz" render={() =>
             <Quiz
               fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
             />
           }/>
-          <Route exact path="/quizResults" render={() => 
-            <QuizResults/>
+          <Route exact path="/quizResults" render={() =>
+            <QuizResults
+              quizResults={this.state.quizResults}
+              fetchEpisodes={this.fetchEpisodes}
+              episode={this.state.episodes}
+            />
           }/>
         </Switch>
       </div>

@@ -41,20 +41,20 @@ class Results extends React.Component {
 	}
 
 	render (){
-		let allPodcasts = (this.props.results !== null ? this.props.results.results.map(result => 
-			<ResultCard 
-					result={result} 
-					key={result.id} 
+		let allPodcasts = (this.props.results !== null ? this.props.results.results.map(result =>
+			<ResultCard
+					result={result}
+					key={result.id}
 					handleClick={this.handleClick}
 					clicked={this.state.clicked}
 					episodes={this.state.episodes}
 					goToAllEpisodes={this.goToAllEpisodes}
 			/>
-		) 
+		)
 		: null)
 
-			let podcastDetails = (this.props.episode ? 
-					<PodcastDetails 
+			let podcastDetails = (this.props.episode ?
+					<PodcastDetails
 							episodes={this.props.episode.episodes}
 							podcastTitle={this.props.episode.title}
 							podcastImage={this.props.episode.image}
@@ -65,23 +65,23 @@ class Results extends React.Component {
 
 			return (
 					<div id="all-results">
-							{!allPodcasts ? 
-									<Search 
-											fetchPodcasts={this.props.fetchPodcasts} 
+							{!allPodcasts ?
+									<Search
+											fetchPodcasts={this.props.fetchPodcasts}
 											fetchEpisodes={this.props.fetchEpisodes}
-									/> 
-							: 
+									/>
+							:
 									<div id="results">
 											{allPodcasts}
 									</div>
 							}
-	
-							{this.state.clicked ? 
+
+							{this.state.clicked ?
 									<div id="single-podcast">
-											{podcastDetails}
-									</div> 
+										{podcastDetails}
+									</div>
 							: <h1>Choose a podcast</h1>}
-							
+
 					</div>
 			)
 	}

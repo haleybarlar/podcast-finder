@@ -4,9 +4,6 @@ import EpisodeCard from './EpisodeCard.js'
 class PodcastDetails extends React.Component {
 
     render (){
-
-        console.log(this.props.episodes)
-
         let episodes = (this.props.episodes ? this.props.episodes.map(episode => <EpisodeCard episode={episode} key={episode.id}/>) : null)
 
         return (
