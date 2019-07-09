@@ -1,4 +1,4 @@
-PODCAST APP
+PODCAST APP <br>
 An app that allows you to search for any podcast and listen directly in the app or have podcasts selected for you based on your mood.
 
 ### `npm start`
