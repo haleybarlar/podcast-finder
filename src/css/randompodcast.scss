@@ -1,0 +1,24 @@
+.random-podcast {
+    margin-top: 4em;
+    text-align: center;
+    display: grid;
+
+    button {
+        width: 80%;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+
+    img {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 1em;
+        cursor: pointer;
+    }
+
+    audio {
+        margin: 0 auto;
+        padding-top: 1em;
+        width: 80%;
+    }
+}

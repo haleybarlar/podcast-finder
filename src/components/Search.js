@@ -27,11 +27,9 @@ class Search extends React.Component {
     }
 
     render (){
-        if (this.state.submitted) {
-            return <Redirect to='/results' />
-          }
         return (
             <div id="search">
+                {this.state.submitted && (<Redirect to='/results' />)}
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type="text" 
@@ -39,7 +37,6 @@ class Search extends React.Component {
                         onChange={this.handleChange} 
                         value={this.state.inputValue}
                     />
-                    <button type="submit">Submit</button>
                 </form>
             </div>
         )

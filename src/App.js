@@ -2,7 +2,7 @@ import React from 'react'
 import Results from './components/Results.js'
 import Navbar from './components/Navbar.js'
 import Quiz from './components/Quiz.js'
-import SearchOptions from './components/SearchOptions.js'
+import RandomPodcast from './components/RandomPodcast.js'
 import QuizResults from './components/QuizResults.js'
 import { Route, Switch } from "react-router-dom";
 import './app.scss'
@@ -13,7 +13,27 @@ class App extends React.Component {
     results: null,
     episodes: null,
     quiz: false,
-    quizResults: null
+    quizResults: null,
+    randomPodcast: null
+  }
+
+  componentDidMount() {
+    this.fetchRandomPodcast()
+  }
+
+  fetchRandomPodcast = () => {
+    const url = 'https://listen-api.listennotes.com/api/v2/just_listen'
+    const key = '2a9e8cf643e24f8c8271678ddc18cb04'
+
+    fetch(`${url}`, {
+    headers: {
+        'X-ListenAPI-Key': `${key}`
+    }
+    })
+    .then(resp => resp.json())
+    .then(resp => this.setState({
+        randomPodcast: resp
+    }))
   }
 
   fetchRecommendedPodcasts = (winnerValue) => {
@@ -46,6 +66,7 @@ class App extends React.Component {
   }
 
   fetchEpisodes = (result) => {
+    console.log(result)
     const url = `https://listen-api.listennotes.com/api/v2/podcasts/${result}`
     const key = '2a9e8cf643e24f8c8271678ddc18cb04'
 
@@ -61,7 +82,6 @@ class App extends React.Component {
   }
 
   render (){
-    console.log(this.state.episodes)
     return (
       <div id="app">
         <Navbar
@@ -70,12 +90,17 @@ class App extends React.Component {
           results={this.state.results}
           goHome={() => this.setState({ results: null })}
         />
+        
         <Switch>
-          <Route exact path="/" render={() =>
-            <SearchOptions
-              fetchPodcasts={this.fetchPodcasts}
+        <Route exact path="/" render={() =>
+          <div>
+            <RandomPodcast
+              randomPodcast={this.state.randomPodcast}
               fetchEpisodes={this.fetchEpisodes}
+              episodes={this.state.episodes}
+              fetchRandomPodcast={this.fetchRandomPodcast}
             />
+          </div>
           }/>
           <Route exact path="/results" render={() =>
             <Results

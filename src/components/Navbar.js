@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from './Search.js'
+import SearchOptions from './SearchOptions.js'
 import { Link } from "react-router-dom"
 import '../css/navbar.scss'
 
@@ -11,6 +11,10 @@ class Navbar extends React.Component {
         <Link to="/">
           <h1 onClick={this.props.goHome}>Podcast App</h1>
         </Link>
+        <SearchOptions 
+          fetchPodcasts={this.props.fetchPodcasts} 
+          fetchEpisodes={this.props.fetchEpisodes}
+        />
       </div>
     )
   }

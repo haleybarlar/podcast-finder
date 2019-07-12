@@ -53,37 +53,34 @@ class Results extends React.Component {
 		)
 		: null)
 
-			let podcastDetails = (this.props.episode ?
-					<PodcastDetails
-							episodes={this.props.episode.episodes}
-							podcastTitle={this.props.episode.title}
-							podcastImage={this.props.episode.image}
-							podcastPublisher={this.props.episode.publisher}
-							podcastDescription={this.props.episode.description}
-							clicked={this.state.clicked}
-					/> : null)
+		let podcastDetails = (this.props.episode ?
+			<PodcastDetails
+					episodes={this.props.episode.episodes}
+					podcastTitle={this.props.episode.title}
+					podcastImage={this.props.episode.image}
+					podcastPublisher={this.props.episode.publisher}
+					podcastDescription={this.props.episode.description}
+					clicked={this.state.clicked}
+			/> 
+			: null)
 
-			return (
-					<div id="all-results">
-							{!allPodcasts ?
-									<Search
-											fetchPodcasts={this.props.fetchPodcasts}
-											fetchEpisodes={this.props.fetchEpisodes}
-									/>
-							:
-									<div id="results">
-											{allPodcasts}
-									</div>
-							}
-
-							{this.state.clicked ?
-									<div id="single-podcast">
-										{podcastDetails}
-									</div>
-							: <h1>Choose a podcast</h1>}
-
+		return (
+			<div id="all-results">
+				{allPodcasts && 
+					<div id="results">
+						{allPodcasts}
 					</div>
-			)
+				}
+
+				{this.state.clicked ?
+					<div id="single-podcast">
+						{podcastDetails}
+					</div>
+				: 
+					<h1>Search for a podcast</h1>
+				}
+			</div>
+		)
 	}
 }
 
