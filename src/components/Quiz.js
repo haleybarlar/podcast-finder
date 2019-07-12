@@ -28,17 +28,32 @@ class Quiz extends React.Component {
     div: 0
   }
 
-  plusOne = (name) => (event)=> {
-    if (this.state[name] >= 3) {
-      this.setState({
-        winner: name
-      })
-    }
-
+  plusOne = (name) => (event) => {
     this.setState({
       [name]: this.state[name] + 1,
       div: this.state.div + 1
     })
+    this.findTheWinner()
+  }
+
+  findTheWinner = () => {
+    if (this.state.health > this.state.crime && this.state.health > this.state.tech && this.state.health > this.state.comedy) {
+      this.setState({
+        winner: "health"
+      })
+    } else if (this.state.crime > this.state.health && this.state.crime > this.state.tech && this.state.crime > this.state.comedy) {
+      this.setState({
+        winner: "crime"
+      })
+    } else if(this.state.tech > this.state.health && this.state.tech > this.state.crime && this.state.tech > this.state.comedy) {
+      this.setState({
+        winner: "tech"
+      })
+    } else if (this.state.comedy > this.state.health && this.state.comedy > this.state.crime && this.state.comedy > this.state.tech) {
+      this.setState({
+        winner: "comedy"
+      })
+    }
   }
 
   render() {
