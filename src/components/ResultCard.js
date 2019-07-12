@@ -1,4 +1,5 @@
 import React from 'react'
+import { Carousel } from 'react-responsive-carousel'
 import '../css/resultcard.scss'
 
 class ResultCard extends React.Component {

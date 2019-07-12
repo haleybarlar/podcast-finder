@@ -1,23 +1,17 @@
-@media only screen and (min-width: 768px) {
-    #all-results {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 3em;
-        padding-left: 1em;
-        padding-right: 1em;
-    }
+#all-results {
+    margin-top: 2em;
 
-    #results {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-row-gap: 1em;
-        grid-column-gap: 1em;
-        height: 37em;
-        overflow: scroll;
+    .carousel {
+        width: 80% !important;
+        margin: 0 auto !important;
     }
-
-    #single-podcast {
-        height: 37em;
-        overflow: scroll;
+    
+    .thumbs-wrapper {
+        margin-top: 0 !important;
+    }
+    
+    .thumbs {
+        padding: 0 !important;
     }
 }
+

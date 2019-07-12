@@ -1,8 +1,9 @@
 import React from 'react'
 import ResultCard from './ResultCard.js'
-import Search from './Search.js'
 import PodcastDetails from './PodcastDetails.js'
 import '../css/results.scss'
+import { Carousel } from 'react-responsive-carousel'
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 class Results extends React.Component {
 
@@ -41,17 +42,12 @@ class Results extends React.Component {
 	}
 
 	render (){
-		let allPodcasts = (this.props.results !== null ? this.props.results.results.map(result =>
-			<ResultCard
-					result={result}
-					key={result.id}
-					handleClick={this.handleClick}
-					clicked={this.state.clicked}
-					episodes={this.state.episodes}
-					goToAllEpisodes={this.goToAllEpisodes}
-			/>
+		let carouselImages = (this.props.results !== null && this.props.results.results.map(result => 
+			<div id={result.id} onClick={this.handleClick}>
+				<img src={result.thumbnail}/>
+			</div>
+			)
 		)
-		: null)
 
 		let podcastDetails = (this.props.episode ?
 			<PodcastDetails
@@ -66,19 +62,9 @@ class Results extends React.Component {
 
 		return (
 			<div id="all-results">
-				{allPodcasts && 
-					<div id="results">
-						{allPodcasts}
-					</div>
-				}
-
-				{this.state.clicked ?
-					<div id="single-podcast">
-						{podcastDetails}
-					</div>
-				: 
-					<h1>Search for a podcast</h1>
-				}
+				<Carousel>
+					{carouselImages}
+				</Carousel>
 			</div>
 		)
 	}
