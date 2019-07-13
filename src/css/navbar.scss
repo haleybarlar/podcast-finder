@@ -1,6 +1,6 @@
 #navbar {
-    margin-top: 42px;
-    
+    margin-top: 25px;
+
     a {
         text-decoration: none;
         color: black;
@@ -14,5 +14,9 @@
     .search-options {
         float: right;
         margin-right: 20px;
+
+        input {
+          outline: none;
+        }
     }
 }

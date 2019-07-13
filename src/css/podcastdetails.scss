@@ -1,0 +1,28 @@
+#podcast-details {
+  text-align: left;
+
+  #episodes {
+    margin-top: 1em;
+    height: 20em;
+    overflow: scroll;
+  }
+
+  #podcast-description {
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+    img {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    h1 {
+      margin: 0 0 0 20px;
+    }
+  }
+
+  h3 {
+    margin: 8px 0 0 0;
+  }
+}

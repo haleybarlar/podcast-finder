@@ -18,6 +18,10 @@ class Results extends React.Component {
 			this.setState({
 					episodes: this.props.episode.episodes
 			})
+		} else if (prevProps.results !== this.props.results) {
+			this.setState({
+				clicked: false
+			})
 		}
 	}
 
@@ -42,9 +46,9 @@ class Results extends React.Component {
 	}
 
 	render (){
-		let carouselImages = (this.props.results !== null && this.props.results.results.map(result => 
-			<div id={result.id} onClick={this.handleClick}>
-				<img src={result.thumbnail}/>
+		let carouselImages = (this.props.results !== null && this.props.results.results.map(result =>
+			<div id={result.id} onClick={this.handleClick} className="carousel-option">
+				<img src={result.thumbnail} alt=""/>
 			</div>
 			)
 		)
@@ -57,14 +61,21 @@ class Results extends React.Component {
 					podcastPublisher={this.props.episode.publisher}
 					podcastDescription={this.props.episode.description}
 					clicked={this.state.clicked}
-			/> 
+			/>
 			: null)
 
 		return (
 			<div id="all-results">
-				<Carousel>
-					{carouselImages}
-				</Carousel>
+				{this.state.clicked ?
+					<div>
+						<button onClick={() => this.setState({ clicked: false })}>back</button>
+						{podcastDetails}
+					</div>
+					:
+					<Carousel>
+						{carouselImages}
+					</Carousel>
+				}
 			</div>
 		)
 	}

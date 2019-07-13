@@ -1,12 +1,13 @@
 import React from 'react'
 import EpisodeCard from './EpisodeCard'
+import PodcastDetails from './PodcastDetails.js'
 import '../css/randompodcast.scss'
 
 class RandomPodcast extends React.Component {
 	state = {
 		clicked: false
 	}
-	
+
 	componentDidUpdate(prevProps) {
 		if (prevProps.randomPodcast !== this.props.randomPodcast) {
 			this.setState({
@@ -27,15 +28,30 @@ class RandomPodcast extends React.Component {
 
 		let episodes = (this.props.episodes && this.props.episodes.episodes.map(episode => <EpisodeCard episode={episode}/>))
 		console.log(randomPodcast)
-		
+
+		let podcastDetails = (this.props.episodes &&
+			<PodcastDetails
+					episodes={this.props.episodes.episodes}
+					podcastTitle={this.props.episodes.title}
+					podcastImage={this.props.episodes.image}
+					podcastDescription={this.props.episodes.description}
+					clicked={this.state.clicked}
+			/>
+			)
+
         return (
 			<div className="random-podcast">
-				<button onClick={this.props.fetchRandomPodcast}>-></button>
-				<img src={randomPodcast.image} id={randomPodcast.podcast_id} alt="" onClick={this.handleClick}/>
-				{this.state.clicked ? episodes : <audio
-					controls
-					src={randomPodcast.audio}
-				/>}
+				{this.state.clicked ? podcastDetails :
+					<div>
+						<button onClick={this.props.fetchRandomPodcast}>-></button>
+						<img src={randomPodcast.image} alt=""/>
+						<audio
+							controls
+							src={randomPodcast.audio}
+						/>
+						<button onClick={this.handleClick} id={randomPodcast.podcast_id} className="hear-more">hear more</button>
+					</div>
+				}
 			</div>
         )
     }

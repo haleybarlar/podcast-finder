@@ -16,6 +16,7 @@ import angry from '../images/angry.jpg'
 import happy from '../images/happy.jpg'
 import healthy from '../images/healthy.jpg'
 import robot from '../images/robot.jpg'
+import '../css/quiz.scss'
 
 class Quiz extends React.Component {
 
@@ -67,39 +68,47 @@ class Quiz extends React.Component {
 
     let questionSlides = [
       [
-      <div className="question-1">
+      <div className="question question-1">
         <p>Which of these images speaks to you?</p>
-        <img src={comedy} alt="" onClick={this.plusOne("comedy")}/>
-        <img src={crime} alt="" onClick={this.plusOne("crime")}/>
-        <img src={health} alt="" onClick={this.plusOne("health")}/>
-        <img src={tech} alt="" onClick={this.plusOne("tech")}/>
+        <div className="quiz-images">
+          <img src={comedy} alt="" onClick={this.plusOne("comedy")}/>
+          <img src={crime} alt="" onClick={this.plusOne("crime")}/>
+          <img src={health} alt="" onClick={this.plusOne("health")}/>
+          <img src={tech} alt="" onClick={this.plusOne("tech")}/>
+        </div>
       </div>
       ],
       [
-        <div className="question-2">
+        <div className="question question-2">
           <p>How are you feeling today?</p>
-          <img src={happy} alt="" onClick={this.plusOne("comedy")}/>
-          <img src={angry} alt="" onClick={this.plusOne("crime")}/>
-          <img src={healthy} alt="" onClick={this.plusOne("health")}/>
-          <img src={robot} alt="" onClick={this.plusOne("tech")}/>
+          <div className="quiz-images">
+            <img src={happy} alt="" onClick={this.plusOne("comedy")}/>
+            <img src={angry} alt="" onClick={this.plusOne("crime")}/>
+            <img src={healthy} alt="" onClick={this.plusOne("health")}/>
+            <img src={robot} alt="" onClick={this.plusOne("tech")}/>
+          </div>
         </div>
       ],
       [
-        <div className="question-3">
+        <div className="question question-3">
           <p>What do you most want to eat</p>
-          <img src={jellyBeans} alt="" onClick={this.plusOne("comedy")}/>
-          <img src={steak} alt="" onClick={this.plusOne("crime")}/>
-          <img src={salad} alt="" onClick={this.plusOne("health")}/>
-          <img src={macaroons} alt="" onClick={this.plusOne("tech")}/>
+          <div className="quiz-images">
+            <img src={jellyBeans} alt="" onClick={this.plusOne("comedy")}/>
+            <img src={steak} alt="" onClick={this.plusOne("crime")}/>
+            <img src={salad} alt="" onClick={this.plusOne("health")}/>
+            <img src={macaroons} alt="" onClick={this.plusOne("tech")}/>
+          </div>
         </div>
       ],
       [
-        <div className="question-4">
+        <div className="question question-4">
           <p>What could you not live without?</p>
-          <img src={whoopee} alt="" onClick={this.plusOne("comedy")}/>
-          <img src={knife} alt="" onClick={this.plusOne("crime")}/>
-          <img src={thermometer} alt="" onClick={this.plusOne("health")}/>
-          <img src={computer} alt="" onClick={this.plusOne("tech")}/>
+          <div className="quiz-images">
+            <img src={whoopee} alt="" onClick={this.plusOne("comedy")}/>
+            <img src={knife} alt="" onClick={this.plusOne("crime")}/>
+            <img src={thermometer} alt="" onClick={this.plusOne("health")}/>
+            <img src={computer} alt="" onClick={this.plusOne("tech")}/>
+          </div>
         </div>
       ]
     ]

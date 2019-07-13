@@ -1,17 +1,25 @@
 #all-results {
     margin-top: 2em;
+    margin: 20px 20px 0px 20px;
 
     .carousel {
         width: 80% !important;
         margin: 0 auto !important;
+
+        .carousel-option {
+          cursor: pointer;
+        }
     }
-    
+
+    button {
+      margin-bottom: 10px;
+    }
+
     .thumbs-wrapper {
         margin-top: 0 !important;
     }
-    
+
     .thumbs {
         padding: 0 !important;
     }
 }
-

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/episodecard.scss'
 
 class EpisodeCard extends React.Component {
 

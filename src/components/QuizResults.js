@@ -29,29 +29,27 @@ class QuizResults extends React.Component {
         : null)
 
         let podcastDetails = (this.props.episode ?
-            <PodcastDetails
-                episodes={this.props.episode.episodes}
-                podcastTitle={this.props.episode.title}
-                podcastImage={this.props.episode.image}
-                podcastPublisher={this.props.episode.publisher}
-                podcastDescription={this.props.episode.description}
-                clicked={this.state.clicked}
-            /> : null)
-
-
+          <PodcastDetails
+              episodes={this.props.episode.episodes}
+              podcastTitle={this.props.episode.title}
+              podcastImage={this.props.episode.image}
+              podcastPublisher={this.props.episode.publisher}
+              podcastDescription={this.props.episode.description}
+              clicked={this.state.clicked}
+          /> : null)
+          
     return (
-
       <div>
         <h1>Based on your choices, we think you might be interested in these podcasts:</h1>
         <div id="all-results">
-        <div id="results">
-          {quizResults}
-        </div>
-        {this.state.clicked ?
-          <div id="single-podcast">
-            {podcastDetails}
+          <div id="results">
+            {quizResults}
           </div>
-        : <h1>Choose a podcast</h1>}
+          {this.state.clicked ?
+            <div id="single-podcast">
+              {podcastDetails}
+            </div>
+          : <h1>Choose a podcast</h1>}
         </div>
       </div>
     )
