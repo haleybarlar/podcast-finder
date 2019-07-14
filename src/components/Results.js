@@ -34,7 +34,7 @@ class Results extends React.Component {
 	}
 
 	render (){
-		// why is this undefined????????? console.log("clicked",this.props.episode)
+		// why tf is this undefined????????? console.log("clicked",this.props.episode)
 
 		console.log(this.props.episode)
 
@@ -50,7 +50,6 @@ class Results extends React.Component {
 					episodes={this.props.episode.episodes}
 					podcastTitle={this.props.episode.title}
 					podcastImage={this.props.episode.image}
-					podcastPublisher={this.props.episode.publisher}
 					podcastDescription={this.props.episode.description}
 					clicked={this.state.clicked}
 			/>

@@ -33,7 +33,7 @@ class RandomPodcast extends React.Component {
 					podcastDescription={this.props.episodes.description}
 					clicked={this.state.clicked}
 			/>
-			)
+		)
 
         return (
 			<div className="random-podcast">
