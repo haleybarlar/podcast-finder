@@ -1,5 +1,4 @@
 import React from 'react'
-import ResultCard from './ResultCard.js'
 import PodcastDetails from './PodcastDetails.js'
 import '../css/results.scss'
 import { Carousel } from 'react-responsive-carousel'
@@ -20,12 +19,13 @@ class Results extends React.Component {
 			})
 		} else if (prevProps.results !== this.props.results) {
 			this.setState({
-				clicked: false
+				// clicked: false
 			})
 		}
 	}
 
 	handleClick = (event) => {
+		console.log('hello')
 		this.setState({
 			result: event.target.id,
 			clicked: true
@@ -33,27 +33,19 @@ class Results extends React.Component {
 		this.props.fetchEpisodes(event.target.id)
 	}
 
-	showAll = () => {
-		this.setState({
-				clicked: false
-		})
-	}
-
-	goToAllEpisodes = () => {
-		this.setState({
-				clicked: true
-		})
-	}
-
 	render (){
-		let carouselImages = (this.props.results !== null && this.props.results.results.map(result =>
+		// why is this undefined????????? console.log("clicked",this.props.episode)
+
+		console.log(this.props.episode)
+
+		let carouselImages = (this.props.results !== null && this.props.results && this.props.results.map(result =>
 			<div id={result.id} onClick={this.handleClick} className="carousel-option">
 				<img src={result.thumbnail} alt=""/>
 			</div>
 			)
 		)
 
-		let podcastDetails = (this.props.episode ?
+		let podcastDetails = (this.props.episode &&
 			<PodcastDetails
 					episodes={this.props.episode.episodes}
 					podcastTitle={this.props.episode.title}
@@ -62,7 +54,7 @@ class Results extends React.Component {
 					podcastDescription={this.props.episode.description}
 					clicked={this.state.clicked}
 			/>
-			: null)
+		)
 
 		return (
 			<div id="all-results">

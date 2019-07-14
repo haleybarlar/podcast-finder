@@ -1,5 +1,4 @@
 import React from 'react'
-import EpisodeCard from './EpisodeCard'
 import PodcastDetails from './PodcastDetails.js'
 import '../css/randompodcast.scss'
 
@@ -25,9 +24,6 @@ class RandomPodcast extends React.Component {
 
     render() {
 		let randomPodcast = (this.props.randomPodcast !== null && this.props.randomPodcast)
-
-		let episodes = (this.props.episodes && this.props.episodes.episodes.map(episode => <EpisodeCard episode={episode}/>))
-		console.log(randomPodcast)
 
 		let podcastDetails = (this.props.episodes &&
 			<PodcastDetails

@@ -66,7 +66,6 @@ class App extends React.Component {
   }
 
   fetchEpisodes = (result) => {
-    console.log(result)
     const url = `https://listen-api.listennotes.com/api/v2/podcasts/${result}`
     const key = '2a9e8cf643e24f8c8271678ddc18cb04'
 
@@ -82,6 +81,7 @@ class App extends React.Component {
   }
 
   render (){
+    console.log(this.state.episodes)
     return (
       <div id="app">
         <Navbar
@@ -90,7 +90,6 @@ class App extends React.Component {
           results={this.state.results}
           goHome={() => this.setState({ results: null })}
         />
-        
         <Switch>
         <Route exact path="/" render={() =>
           <div>
@@ -104,7 +103,7 @@ class App extends React.Component {
           }/>
           <Route exact path="/results" render={() =>
             <Results
-              results={this.state.results}
+              results={this.state.results !== null && this.state.results.results}
               episode={this.state.episodes}
               fetchEpisodes={this.fetchEpisodes}
               fetchPodcasts={this.fetchPodcasts}
