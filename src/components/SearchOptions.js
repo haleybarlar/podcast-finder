@@ -7,13 +7,13 @@ class SearchOptions extends React.Component {
     render() {
         return (
             <div className="search-options">
+                <Link to="/quiz">
+                    <p>take a quiz</p>
+                </Link>
                 <Search 
                     fetchPodcasts={this.props.fetchPodcasts} 
                     fetchEpisodes={this.props.fetchEpisodes}
                 />
-                <Link to="/quiz">
-                    <p>take a quiz</p>
-                </Link>
             </div>
         )
     }

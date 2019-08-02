@@ -30,10 +30,11 @@ class Search extends React.Component {
         return (
             <div id="search">
                 {this.state.submitted && (<Redirect to='/results' />)}
+                <i class="material-icons">search</i>
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type="text" 
-                        placeholder="search for a podcast"
+                        placeholder="Search for a podcast"
                         onChange={this.handleChange} 
                         value={this.state.inputValue}
                     />

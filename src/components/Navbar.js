@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchOptions from './SearchOptions.js'
 import { Link } from "react-router-dom"
+import Menu from 'react-burger-menu/lib/menus/slide'
 import '../css/navbar.scss'
 
 class Navbar extends React.Component {
@@ -9,12 +10,22 @@ class Navbar extends React.Component {
     return (
       <div id="navbar">
         <Link to="/">
-          <h1 onClick={this.props.goHome}>Podcast App</h1>
+          <h1 onClick={this.props.goHome}><span>listen</span>list</h1>
         </Link>
-        <SearchOptions 
-          fetchPodcasts={this.props.fetchPodcasts} 
-          fetchEpisodes={this.props.fetchEpisodes}
-        />
+        <div className="big-menu">
+          <SearchOptions 
+            fetchPodcasts={this.props.fetchPodcasts} 
+            fetchEpisodes={this.props.fetchEpisodes}
+          />
+        </div>
+        <div className="burger-menu">
+          <Menu noOverlay right>
+            <SearchOptions 
+              fetchPodcasts={this.props.fetchPodcasts} 
+              fetchEpisodes={this.props.fetchEpisodes}
+            />
+          </Menu>
+        </div>
       </div>
     )
   }
