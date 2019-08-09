@@ -3,22 +3,70 @@
     text-align: center;
     display: grid;
 
-    button {
-        width: 80%;
-        margin: 0 auto;
-        cursor: pointer;
+    .random-podcast-elements {
+        display: flex;
+        flex-direction: column;
+
+        .title-and-image {
+            display: flex;
+            flex-direction: row;
+
+            .description {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                #podcast-title {
+                    font-size: 20px;
+                }
+
+                #episode-title {
+                    font-size: 12px;
+                    margin-top: -34px;
+                    
+                }
+            }
+
+            p {
+                font-family: roboto;
+                font-size: 18px;
+                letter-spacing: 1px;
+                padding: 0 26px 0 18px;
+                text-align: left;
+                margin: 0;
+            }
+        }
+        
+        .button {
+            display: flex;
+            align-items: flex-start;
+            margin-left: 18px;
+        
+            button {
+                width: 130px;
+                cursor: pointer;
+                font-family: roboto;
+                letter-spacing: 1px;
+            }
+    
+            #next {
+                margin-left: 10px;
+            }
+        }
+    
+        img {
+            width: 150px;
+            border-radius: 4px;
+            margin-left: 26px;
+        }
+    
+        audio {
+            margin: 0 auto;
+            padding-top: 1em;
+            height: 40px;
+            width: 450px;
+        }
     }
 
-    img {
-        width: 80%;
-        margin: 0 auto;
-        padding-top: 1em;
-        cursor: pointer;
-    }
 
-    audio {
-        margin: 0 auto;
-        padding-top: 1em;
-        width: 80%;
-    }
 }

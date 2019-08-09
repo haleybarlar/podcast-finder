@@ -93,11 +93,16 @@ class App extends React.Component {
         <Switch>
         <Route exact path="/" render={() =>
           <div>
+            <h1 className="title-h1">RANDOM PODCAST</h1>
             <RandomPodcast
               randomPodcast={this.state.randomPodcast}
               fetchEpisodes={this.fetchEpisodes}
               episodes={this.state.episodes}
               fetchRandomPodcast={this.fetchRandomPodcast}
+            />
+            <h1 className="title-h1">QUIZ</h1>
+            <Quiz
+              fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
             />
           </div>
           }/>

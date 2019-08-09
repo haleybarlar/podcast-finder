@@ -1,6 +1,7 @@
 .search-options {
     p {
         margin: 0;
+        letter-spacing: 2px;
     }
 
     p:hover {
@@ -8,6 +9,8 @@
     }
 
     #search {
+        padding-top: 8px;
+
         i {
             position: absolute;
             margin-left: 8px;
@@ -22,6 +25,7 @@
             width: 210px;
             font-size: 15px;
             text-indent: 32px;
+            letter-spacing: 1px;
         }
     }
 
