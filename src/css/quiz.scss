@@ -13,15 +13,15 @@
 
     .quiz-images {
       display: grid;
-      grid-template-columns: 200px 200px;
+      grid-template-columns: 8em 8em;
       grid-column-gap: 1em;
       grid-row-gap: 1em;
       justify-content: center;
       margin-bottom: 20px;
 
       img {
-        width: 200px;
-        height: 200px;
+        width: 8em;
+        height: 8em;
         object-fit: cover;
         cursor: pointer;
         margin: 0 auto;
