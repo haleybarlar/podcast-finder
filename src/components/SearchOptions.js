@@ -8,11 +8,12 @@ class SearchOptions extends React.Component {
         return (
             <div className="search-options">
                 <Link to="/quiz">
-                    <p>take a quiz</p>
+                    <p onClick={this.props.closeBurger}>take a quiz</p>
                 </Link>
                 <Search 
                     fetchPodcasts={this.props.fetchPodcasts} 
                     fetchEpisodes={this.props.fetchEpisodes}
+                    closeBurger={this.props.closeBurger}
                 />
             </div>
         )

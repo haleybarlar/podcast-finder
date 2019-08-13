@@ -16,6 +16,9 @@ class Search extends React.Component {
     }
 
     handleSubmit = (event) => {
+        if (this.props.closeBurger) {
+            this.props.closeBurger()
+        }
         event.preventDefault()
         let result = this.state.inputValue
         this.props.fetchPodcasts(result)

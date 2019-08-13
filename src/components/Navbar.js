@@ -6,6 +6,20 @@ import '../css/navbar.scss'
 
 class Navbar extends React.Component {
 
+  state = {
+    isOpen: false
+  }
+
+  closeBurger = () => {
+    this.setState({
+      isOpen: false
+    })
+  }
+
+  handleStateChange (state) {
+    this.setState({isOpen: state.isOpen})  
+  }
+
   render (){
     return (
       <div id="navbar">
@@ -19,10 +33,16 @@ class Navbar extends React.Component {
           />
         </div>
         <div className="burger-menu">
-          <Menu noOverlay right>
+          <Menu 
+            noOverlay 
+            right 
+            isOpen={this.state.isOpen}
+            onStateChange={(state) => this.handleStateChange(state)}
+          >
             <SearchOptions 
               fetchPodcasts={this.props.fetchPodcasts} 
               fetchEpisodes={this.props.fetchEpisodes}
+              closeBurger={this.closeBurger}
             />
           </Menu>
         </div>
