@@ -1,9 +1,16 @@
 #app {
+
+    font-family: roboto;
+
     .title-h1 {
         text-align: center;
         font-size: 1.5em;
         letter-spacing: 2px;
         font-weight: 200;
         margin-top: 2em;
+    }
+
+    .app-body {
+        margin: 0 15px;
     }
 }

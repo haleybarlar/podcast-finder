@@ -13,7 +13,7 @@ class PodcastDetails extends React.Component {
                 <img src={this.props.podcastImage} alt=""/>
                 <h1>{this.props.podcastTitle}</h1>
               </div>
-              <h3>{this.props.podcastDescription}</h3>
+              <p>{this.props.podcastDescription}</p>
               <div id="episodes">
                 {episodes}
               </div>

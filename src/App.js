@@ -14,7 +14,8 @@ class App extends React.Component {
     episodes: null,
     quiz: false,
     quizResults: null,
-    randomPodcast: null
+    randomPodcast: null,
+    clicked: false
   }
 
   componentDidMount() {
@@ -91,41 +92,48 @@ class App extends React.Component {
           goHome={() => this.setState({ results: null })}
         />
         <Switch>
-        <Route exact path="/" render={() =>
-          <div>
-            <h1 className="title-h1">RANDOM PODCAST</h1>
-            <RandomPodcast
-              randomPodcast={this.state.randomPodcast}
-              fetchEpisodes={this.fetchEpisodes}
-              episodes={this.state.episodes}
-              fetchRandomPodcast={this.fetchRandomPodcast}
-            />
-            <h1 className="title-h1">QUIZ</h1>
-            <Quiz
-              fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
-            />
+          <div className="app-body">
+            <Route exact path="/" render={() =>
+              <div className="random-podcast-app">
+                <h1 className="title-h1">RANDOM PODCAST</h1>
+                <RandomPodcast
+                  randomPodcast={this.state.randomPodcast}
+                  fetchEpisodes={this.fetchEpisodes}
+                  episodes={this.state.episodes}
+                  fetchRandomPodcast={this.fetchRandomPodcast}
+                  removeQuiz={() => this.setState({ clicked: !this.state.clicked })}
+                />
+                {!this.state.clicked &&
+                  <div>
+                    <h1 className="title-h1">QUIZ</h1>
+                    <Quiz
+                      fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
+                    />
+                  </div>
+                }
+            </div>
+            }/>
+            <Route exact path="/results" render={() =>
+              <Results
+                results={this.state.results !== null && this.state.results.results}
+                episode={this.state.episodes}
+                fetchEpisodes={this.fetchEpisodes}
+                fetchPodcasts={this.fetchPodcasts}
+              />
+            }/>
+            <Route exact path="/quiz" render={() =>
+              <Quiz
+                fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
+              />
+            }/>
+            <Route exact path="/quizResults" render={() =>
+              <QuizResults
+                quizResults={this.state.quizResults}
+                fetchEpisodes={this.fetchEpisodes}
+                episode={this.state.episodes}
+              />
+            }/>
           </div>
-          }/>
-          <Route exact path="/results" render={() =>
-            <Results
-              results={this.state.results !== null && this.state.results.results}
-              episode={this.state.episodes}
-              fetchEpisodes={this.fetchEpisodes}
-              fetchPodcasts={this.fetchPodcasts}
-            />
-          }/>
-          <Route exact path="/quiz" render={() =>
-            <Quiz
-              fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
-            />
-          }/>
-          <Route exact path="/quizResults" render={() =>
-            <QuizResults
-              quizResults={this.state.quizResults}
-              fetchEpisodes={this.fetchEpisodes}
-              episode={this.state.episodes}
-            />
-          }/>
         </Switch>
       </div>
     )

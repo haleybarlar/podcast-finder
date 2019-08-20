@@ -18,6 +18,7 @@ class RandomPodcast extends React.Component {
 
 	handleClick = (event) => {
 		this.props.fetchEpisodes(event.target.id)
+		this.props.removeQuiz()
 		this.setState({
 			clicked: true
 		})
@@ -45,7 +46,7 @@ class RandomPodcast extends React.Component {
         return (
 
 			<div className="random-podcast">
-				{this.state.clicked ? <div><button onClick={() => this.setState({clicked: false})}>back</button>{podcastDetails}</div> :
+				{this.state.clicked ? <div><button onClick={() => {this.setState({clicked: false}); this.props.removeQuiz()}}>back</button>{podcastDetails}</div> :
 					<div className="random-podcast-elements">
 						<div className="title-and-image">
 							<img src={randomPodcast.image} alt=""/>
