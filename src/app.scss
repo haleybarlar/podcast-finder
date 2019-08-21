@@ -1,6 +1,29 @@
 #app {
-
     font-family: roboto;
+
+    .body-content {
+        margin-top: 3em;
+    }
+
+    .subtitle {
+        font-size: 50px;
+        letter-spacing: 2px;
+        font-weight: 200;
+        margin-left: 15px;
+    }
+
+    .sub-p {
+        font-size: 20px;
+        letter-spacing: 2px;
+        line-height: 28px;
+        margin-left: 15px;
+    }
+
+    .p {
+        letter-spacing: 1px;
+        line-height: 22px;
+        margin-left: 15px;
+    }
 
     .title-h1 {
         text-align: center;
@@ -10,7 +33,7 @@
         margin-top: 2em;
     }
 
-    .app-body {
-        margin: 0 15px;
-    }
+    // .app-body {
+    //     margin: 0 15px;
+    // }
 }

@@ -93,25 +93,28 @@ class App extends React.Component {
         />
         <Switch>
           <div className="app-body">
+            <h1 className="subtitle">LOREM <br/> IPSUM <br/> PODCAST</h1>
+            <p className="sub-p">ListenList is the place to discover new podcasts</p>
+            <p className="p">Search by title, match through our quiz or find one selected for you</p>
             <Route exact path="/" render={() =>
-              <div className="random-podcast-app">
-                <h1 className="title-h1">RANDOM PODCAST</h1>
-                <RandomPodcast
-                  randomPodcast={this.state.randomPodcast}
-                  fetchEpisodes={this.fetchEpisodes}
-                  episodes={this.state.episodes}
-                  fetchRandomPodcast={this.fetchRandomPodcast}
-                  removeQuiz={() => this.setState({ clicked: !this.state.clicked })}
-                />
+              <div className="body-content">
+                <div className="random-podcast-app">
+                  <RandomPodcast
+                    randomPodcast={this.state.randomPodcast}
+                    fetchEpisodes={this.fetchEpisodes}
+                    episodes={this.state.episodes}
+                    fetchRandomPodcast={this.fetchRandomPodcast}
+                    removeQuiz={() => this.setState({ clicked: !this.state.clicked })}
+                  />
+                </div>
                 {!this.state.clicked &&
                   <div>
-                    <h1 className="title-h1">QUIZ</h1>
                     <Quiz
                       fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
                     />
                   </div>
                 }
-            </div>
+              </div>
             }/>
             <Route exact path="/results" render={() =>
               <Results

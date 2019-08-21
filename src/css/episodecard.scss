@@ -1,5 +1,7 @@
 #episode-card {
-  margin-top: 1em;
+  margin-top: 2em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1em;
 
   h4 {
     margin: 0;
@@ -7,5 +9,7 @@
 
   audio {
     outline: none;
+    width: 100%;
+    margin-top: 10px;
   }
 }

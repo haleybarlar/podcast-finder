@@ -1,6 +1,5 @@
 #podcast-details {
   text-align: left;
-  // font-family: roboto;
 
   #episodes {
     margin-top: 1em;
@@ -10,11 +9,9 @@
   #podcast-description {
     display: flex;
     margin: 0 auto;
-    text-align: left;
+    margin-top: 1em;
 
     img {
-      margin: 0;
-      padding: 0;
       width: 40%;
     }
 
