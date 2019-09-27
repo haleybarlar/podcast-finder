@@ -1,9 +1,15 @@
 #podcast-details {
   text-align: left;
 
+  p {
+    color: #5F7F5B;
+  }
+
   #episodes {
     margin-top: 1em;
     height: 20em;
+    height: 331px;
+    overflow: scroll;
   }
 
   #podcast-description {
@@ -18,6 +24,7 @@
     h1 {
       margin: 0 0 0 15px;
       font-size: 20px;
+      color: #5F7F5B;
     }
   }
 

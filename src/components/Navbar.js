@@ -24,7 +24,7 @@ class Navbar extends React.Component {
     return (
       <div id="navbar">
         <Link to="/">
-          <h1 onClick={this.props.goHome}><span>listen</span>list</h1>
+          <h1 className="subtitle" onClick={this.props.forceUpdate}>ListenList<i class="material-icons">mic_none</i></h1>
         </Link>
         <div className="big-menu">
           <SearchOptions 

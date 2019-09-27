@@ -4,6 +4,8 @@ import Navbar from './components/Navbar.js'
 import Quiz from './components/Quiz.js'
 import RandomPodcast from './components/RandomPodcast.js'
 import QuizResults from './components/QuizResults.js'
+import PodcastDetails from './components/PodcastDetails.js'
+import Footer from './components/Footer.js'
 import { Route, Switch } from "react-router-dom";
 import './app.scss'
 
@@ -27,14 +29,17 @@ class App extends React.Component {
     const key = '2a9e8cf643e24f8c8271678ddc18cb04'
 
     fetch(`${url}`, {
-    headers: {
-        'X-ListenAPI-Key': `${key}`
-    }
+      headers: {
+          'X-ListenAPI-Key': `${key}`
+      }
     })
     .then(resp => resp.json())
-    .then(resp => this.setState({
+    .then(resp => {
+      console.log(resp)
+      this.setState({
         randomPodcast: resp
-    }))
+    })
+    })
   }
 
   fetchRecommendedPodcasts = (winnerValue) => {
@@ -67,6 +72,7 @@ class App extends React.Component {
   }
 
   fetchEpisodes = (result) => {
+    console.log("result", result)
     const url = `https://listen-api.listennotes.com/api/v2/podcasts/${result}`
     const key = '2a9e8cf643e24f8c8271678ddc18cb04'
 
@@ -76,13 +82,14 @@ class App extends React.Component {
     }
     })
     .then(resp => resp.json())
-    .then(resp => this.setState({
+    .then(resp => {
+      this.setState({
         episodes: resp
-    }))
+      })
+    })
   }
 
   render (){
-    console.log(this.state.episodes)
     return (
       <div id="app">
         <Navbar
@@ -90,12 +97,10 @@ class App extends React.Component {
           fetchEpisodes={this.fetchEpisodes}
           results={this.state.results}
           goHome={() => this.setState({ results: null })}
+          forceUpdate={() => this.forceUpdate()}
         />
         <Switch>
           <div className="app-body">
-            <h1 className="subtitle">LOREM <br/> IPSUM <br/> PODCAST</h1>
-            <p className="sub-p">ListenList is the place to discover new podcasts</p>
-            <p className="p">Search by title, match through our quiz or find one selected for you</p>
             <Route exact path="/" render={() =>
               <div className="body-content">
                 <div className="random-podcast-app">
@@ -107,13 +112,16 @@ class App extends React.Component {
                     removeQuiz={() => this.setState({ clicked: !this.state.clicked })}
                   />
                 </div>
-                {!this.state.clicked &&
-                  <div>
-                    <Quiz
-                      fetchRecommendedPodcasts={this.fetchRecommendedPodcasts}
-                    />
-                  </div>
-                }
+              </div>
+            }/>
+            <Route exact path="/podcastDetails" render={() => 
+              <div>
+                <PodcastDetails
+                  episodes={this.state.episodes && this.state.episodes.episodes}
+                  podcastTitle={this.state.episodes && this.state.episodes.title}
+                  podcastImage={this.state.episodes && this.state.episodes.image}
+                  podcastDescription={this.state.episodes && this.state.episodes.description}
+                />
               </div>
             }/>
             <Route exact path="/results" render={() =>
@@ -138,6 +146,7 @@ class App extends React.Component {
             }/>
           </div>
         </Switch>
+        <Footer/>
       </div>
     )
   }
