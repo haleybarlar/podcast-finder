@@ -1,9 +1,21 @@
 .quiz-results {
   margin: 0 20px;
+  margin-top: -26px;
+
+  #title-desc {
+    width: 67%;
+    p {
+      height: 57px;
+    }
+  }
 
   h1 {
     color: white;
     font-size: 20px;
     letter-spacing: 0.5px;
+  }
+
+  #episodes {
+    margin-top: 1em !important;
   }
 }

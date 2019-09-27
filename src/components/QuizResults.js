@@ -42,8 +42,8 @@ class QuizResults extends React.Component {
         {!this.props.episodes && !this.props.quizResults ? <Link to="/">wait lol no go back home</Link> : null}
         {this.state.clicked ?
 					<div>
-						<button onClick={() => this.setState({ clicked: false })}>back</button>
-						{podcastDetails}
+            {podcastDetails}
+            <button onClick={() => this.setState({ clicked: false })}>back</button>
 					</div>
 					:
 					<Carousel>
