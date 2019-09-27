@@ -3,6 +3,7 @@ import PodcastDetails from './PodcastDetails.js'
 import '../css/results.scss'
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { Link } from "react-router-dom"
 
 class Results extends React.Component {
 
@@ -25,7 +26,6 @@ class Results extends React.Component {
 	}
 
 	handleClick = (event) => {
-		console.log('hello')
 		this.setState({
 			result: event.target.id,
 			clicked: true
@@ -34,10 +34,6 @@ class Results extends React.Component {
 	}
 
 	render (){
-		// why tf is this undefined????????? console.log("clicked",this.props.episode)
-
-		console.log(this.props.episode)
-
 		let carouselImages = (this.props.results !== null && this.props.results && this.props.results.map(result =>
 			<div id={result.id} onClick={this.handleClick} className="carousel-option">
 				<img src={result.thumbnail} alt=""/>
@@ -57,6 +53,8 @@ class Results extends React.Component {
 
 		return (
 			<div id="all-results">
+				{!this.props.episode && !this.props.results ? <Link to="/">wait lol no go back home</Link> : null}
+
 				{this.state.clicked ?
 					<div>
 						<button onClick={() => this.setState({ clicked: false })}>back</button>

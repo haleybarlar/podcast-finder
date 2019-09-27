@@ -1,5 +1,9 @@
 .quiz {
-  padding: 30px;
+  margin: 0 30px;
+
+  img {
+    margin-bottom: 1em;
+  }
 
   .question {
     p {
@@ -7,23 +11,24 @@
       letter-spacing: 1px;
       font-size: 18px;
       text-align: left;
+      color: white;
     }
 
-    .quiz-images {
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-column-gap: 1em;
-      grid-row-gap: 1em;
-      justify-content: center;
-      margin-bottom: 20px;
+    // .quiz-images {
+    //   display: grid;
+    //   grid-template-columns: auto auto;
+    //   grid-column-gap: 1em;
+    //   grid-row-gap: 1em;
+    //   justify-content: center;
+    //   margin-bottom: 20px;
 
-      img {
-        width: 100%;
-        height: 8em;
-        object-fit: cover;
-        cursor: pointer;
-        margin: 0 auto;
-      }
-    }
+    //   img {
+    //     width: 100%;
+    //     height: 8em;
+    //     object-fit: cover;
+    //     cursor: pointer;
+    //     margin: 0 auto;
+    //   }
+    // }
   }
 }

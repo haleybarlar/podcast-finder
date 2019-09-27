@@ -52,7 +52,8 @@ class App extends React.Component {
       })
       .then(resp => resp.json())
       .then(resp => this.setState({
-        quizResults: resp
+        quizResults: resp,
+        results: resp
       }))
   }
 
@@ -72,7 +73,7 @@ class App extends React.Component {
   }
 
   fetchEpisodes = (result) => {
-    console.log("result", result)
+    console.log('episodes')
     const url = `https://listen-api.listennotes.com/api/v2/podcasts/${result}`
     const key = '2a9e8cf643e24f8c8271678ddc18cb04'
 
@@ -141,7 +142,8 @@ class App extends React.Component {
               <QuizResults
                 quizResults={this.state.quizResults}
                 fetchEpisodes={this.fetchEpisodes}
-                episode={this.state.episodes}
+                episodes={this.state.episodes}
+                results={this.state.results !== null && this.state.results.results}
               />
             }/>
           </div>

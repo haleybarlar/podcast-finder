@@ -1,12 +1,31 @@
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 #podcast-details {
   text-align: left;
+  margin-top: -39px;
+  margin: 0 30px;
+
+        button {
+            background: #5F7F5B;
+            color: white;
+            border: 1px solid transparent;
+            letter-spacing: 2px;
+            border-radius: 10px; 
+        }
 
   p {
     color: #5F7F5B;
+    height: 95px;
+    overflow: scroll;
+    margin-top: 0;
   }
 
   #episodes {
-    margin-top: 1em;
+    margin-top: 3em;
     height: 20em;
     height: 331px;
     overflow: scroll;
@@ -15,14 +34,25 @@
   #podcast-description {
     display: flex;
     margin: 0 auto;
-    margin-top: 1em;
 
-    img {
-      width: 40%;
+    #div-img {
+      width: 34%;
+      flex: 0 0 auto;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    #title-desc {
+      margin-left: 12px;
+      flex: 1 1 auto;
     }
 
     h1 {
-      margin: 0 0 0 15px;
+      margin: 0;
       font-size: 20px;
       color: #5F7F5B;
     }
