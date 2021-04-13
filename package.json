@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "compile-sass": "^0.1.3",
+    "compile-sass": "^1.0.5",
     "lodash": "^4.17.14",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
